@@ -1,0 +1,17 @@
+{
+  "name": "menthum-web",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "posthog-js": "^1.438.9"
+  },
+  "devDependencies": {
+    "vite": "^5.4.14"
+  }
+}
