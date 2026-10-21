@@ -165,7 +165,7 @@ function setupWaitlistForm() {
         phone: leadData.phone,
         message: leadData.message || null,
         has_message: Boolean(leadData.message),
-        lead_priority: leadData.role === 'coach' || leadData.role === 'psicologo' ? 'high' : 'standard'
+        lead_priority: ['psicologo', 'rendimiento_mental', 'coach', 'entrenador', 'club_institucion'].includes(leadData.role) ? 'high' : 'standard'
       });
 
       // 2. Identificar el usuario en PostHog con sus propiedades
