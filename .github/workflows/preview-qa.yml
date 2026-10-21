@@ -32,4 +32,8 @@ jobs:
         run: npm run build
 
       - name: Deploy Preview Channel (QA)
-        run: npx firebase-tools hosting:channel:deploy "pr-${{ github.event.number }}" --expires 7d --token "${{ secrets.FIREBASE_TOKEN }}"
+        run: |
+          DEPLOY_OUTPUT=$(npx firebase-tools hosting:channel:deploy "pr-${{ github.event.number }}" --expires 2d --token "${{ secrets.FIREBASE_TOKEN }}")
+          echo "$DEPLOY_OUTPUT"
+          echo "### 🚀 QA Preview Channel Listo (Expira en 2 días)" >> $GITHUB_STEP_SUMMARY
+          echo "$DEPLOY_OUTPUT" | grep -i "Channel URL" >> $GITHUB_STEP_SUMMARY || true
