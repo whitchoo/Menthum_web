@@ -199,7 +199,7 @@ function setupWaitlistForm() {
       alert('Hubo un inconveniente al procesar tu solicitud. Por favor inténtalo nuevamente.');
     } finally {
       if (submitBtn) submitBtn.disabled = false;
-      if (btnText) btnText.textContent = 'Avisadme Cuando Esté Disponible';
+      if (btnText) btnText.textContent = 'Apuntarme';
       if (btnSpinner) btnSpinner.style.display = 'none';
     }
   });
