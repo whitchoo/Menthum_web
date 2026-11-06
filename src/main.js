@@ -2,11 +2,13 @@
  * Menthum Web — Main Application Script
  * Telemetría PostHog, Video Hero Controls, y Formulario de Lista de Espera.
  */
-import { initTelemetry, trackEvent, identifyLead, notifyTelegram, saveLeadLocally } from './telemetry.js';
+import { trackEvent, identifyLead, notifyTelegram, saveLeadLocally } from './telemetry.js';
+import { initConsentManager } from './consent.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Inicializar Telemetría PostHog
-  initTelemetry();
+  // 1. Inicializar Gestor de Consentimiento (Cookies RGPD/LSSI-CE)
+  // PostHog solo se activará si el usuario acepta las cookies analíticas.
+  initConsentManager();
 
   // 2. Configurar año actual en el footer
   const yearEl = document.getElementById('currentYear');
@@ -140,12 +142,21 @@ function setupWaitlistForm() {
     }
 
     const formData = new FormData(form);
+    const privacyAccepted = formData.get('privacyConsent') === 'on';
+
+    if (!privacyAccepted) {
+      alert('Debes leer y aceptar la Política de Privacidad para poder apuntarte a la lista de espera.');
+      return;
+    }
+
     const leadData = {
       role: formData.get('role') || 'otro',
       name: (formData.get('name') || '').trim(),
       email: (formData.get('email') || '').trim().toLowerCase(),
       phone: (formData.get('phone') || '').trim(),
       message: (formData.get('message') || '').trim(),
+      privacy_consent: true,
+      consent_timestamp: new Date().toISOString(),
       submitted_at: new Date().toISOString(),
       referrer: document.referrer || 'direct',
       user_agent: navigator.userAgent

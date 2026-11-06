@@ -379,15 +379,37 @@
             <textarea id="inputMessage" name="message" class="form-textarea" rows="3" placeholder="¿Con qué deporte trabajas, qué retos tienes con tus deportistas entre sesiones o qué te gustaría que resolviera Menthum?"></textarea>
           </div>
 
+          <!-- Consentimiento Expreso RGPD (Casilla obligatoria) -->
+          <div class="form-group form-privacy-check">
+            <label class="privacy-checkbox-label" for="privacyConsent">
+              <input type="checkbox" id="privacyConsent" name="privacyConsent" required />
+              <span>
+                He leído y acepto la <a href="/privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a> y autorizo el tratamiento de mis datos para gestionar mi inscripción en la lista de espera de Menthum. *
+              </span>
+            </label>
+          </div>
+
           <!-- Botón de Envío -->
           <button type="submit" class="btn btn-primary btn-submit-waitlist" id="submitWaitlistBtn">
             <span class="btn-text">Apuntarme</span>
             <span class="btn-spinner" style="display: none;"></span>
           </button>
 
-          <p class="form-footer-note">
-            🔒 Respetamos tu privacidad. Utilizaremos tus datos exclusivamente para avisarte del lanzamiento y contactar contigo sobre el desarrollo de la plataforma. Cero ofertas comerciales o spam de terceros.
-          </p>
+          <!-- Primera Capa Informativa (Art. 13 RGPD / AEPD) -->
+          <div class="legal-first-layer-card">
+            <div class="legal-first-layer-header">
+              <span class="legal-badge-icon">🔒</span>
+              <strong>Información básica sobre protección de datos</strong>
+            </div>
+            <ul class="legal-first-layer-list">
+              <li><strong>Responsable:</strong> Mauricio A. Contrera Gaite (Menthum / Itaro).</li>
+              <li><strong>Finalidad:</strong> Gestionar tu registro en la lista de espera, avisarte del lanzamiento y mantener contacto cualitativo sobre las necesidades de la plataforma.</li>
+              <li><strong>Legitimación:</strong> Tu consentimiento expreso al enviar el formulario (Art. 6.1.a RGPD).</li>
+              <li><strong>Destinatarios:</strong> Servidores en la Unión Europea (infraestructura en la nube y analítica anónima). Cero cesiones comerciales a terceros.</li>
+              <li><strong>Derechos:</strong> Acceso, rectificación, supresión, limitación y portabilidad a través de <a href="mailto:legal@itaro.es">legal@itaro.es</a>.</li>
+              <li><strong>Información adicional:</strong> Consulta los detalles completos en nuestra <a href="/privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>.</li>
+            </ul>
+          </div>
         </form>
 
         <!-- Estado de Éxito Interactivo -->
@@ -434,11 +456,22 @@
       </div>
 
       <div class="footer-links-col">
+        <h5>Legal & Privacidad</h5>
+        <ul>
+          <li><a href="/aviso-legal.html">Aviso Legal</a></li>
+          <li><a href="/privacidad.html">Política de Privacidad</a></li>
+          <li><a href="/cookies.html">Política de Cookies</a></li>
+          <li><a href="/accesibilidad.html">Accesibilidad</a></li>
+          <li><button type="button" class="footer-btn-link" id="btnManageCookies">Gestionar Cookies</button></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
         <h5>Compromiso</h5>
         <ul>
           <li><span>Rigor Metodológico</span></li>
-          <li><span>Protección del Menor</span></li>
-          <li><span>Privacidad RGPD</span></li>
+          <li><span>Protección del Menor (LOPD)</span></li>
+          <li><span>Seguridad & IA Ética</span></li>
         </ul>
       </div>
     </div>
